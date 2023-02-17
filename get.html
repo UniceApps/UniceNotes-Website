@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UniceNotes</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="Visualisez vos notes. Sans PDF.">
+    <meta name="author" content="hugofnm">
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <link href="https://fonts.cdnfonts.com/css/bahnschrift" rel="stylesheet">
+</head>
+
+<script>
+    // if os is ios redirect to appstore
+    if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i)) {
+        window.location = "https://apps.apple.com/fr/app/unicenotes/id1668992337";
+    }
+    // if os is android redirect to playstore
+    else if (navigator.userAgent.match(/Android/i)) {
+        window.location = "https://play.google.com/store/apps/details?id=fr.hugofnm.unicenotes";
+    }
+    // if os is not ios or android redirect to bug report
+    else {
+        window.location = "https://notes.metrixmedia.fr";
+    }
+</script>
+
+
+</html>
