@@ -8,28 +8,56 @@
     <title>UniceNotes</title>
     <meta name="description" content="Visualisez vos notes. Sans PDF.">
     <meta name="author" content="hugofnm">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/index/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
     <link href="favicon.png" rel="icon" type="image/png">
     <link href="https://fonts.cdnfonts.com/css/bahnschrift" rel="stylesheet">
 </head>
 
-<body id="page-top" style="font-family: Bahnschrift">
-    <header class="masthead" style="background: linear-gradient(220deg, #00a0ff, #5a5bff);" data-bs-target="#sidebar-wrapper" data-bs-smooth-scroll="true">
-        <div class="container my-auto text-center"><img src="assets/img/icon.png" width="200" height="200" style="margin-bottom: 50px;">
-            <h1 class="d-flex justify-content-center mb-1" style="color: rgb(255,255,255);text-align: center;">UniceNotes</h1>
-            <h1 class="d-flex justify-content-center mb-1" style="color: rgb(255,255,255);font-size: 36px;text-align: center;">Visualisez vos notes. Sans PDF.</h1>
-            <a href="https://apps.apple.com/fr/app/unicenotes/id1668992337">    
-                <img class="img-fluid d-inline-block" src="assets/img/appstore.png" style="width: 165px;margin-top: 50px;margin-right: 10px;" width="200" height="50">                
-            </a>
-            <a href="https://play.google.com/store/apps/details?id=fr.hugofnm.unicenotes">
-                <img class="img-fluid d-inline-block" src="assets/img/googleplay.png" style="width: 165px;margin-top: 50px;margin-left: 10px;" width="200" height="50">
-            </a>
-            <img class="rounded img-fluid d-flex align-self-center" src="assets/img/screen.png">
-            <div class="overlay"></div>
+<main>
+    <div>
+        <img style="margin-bottom: 1rem;" width="100px" src="assets/img/logo.png" alt="UniceNotes">
+        <br>
+        <span>Par hugofnm</span>
+        <h1>UniceNotes</h1>
+        <hr>
+        <p>Visualisez vos notes. Sans PDF.</p>
+        <a href="get">Télécharger l'app</a>
+        <h1 style="background-image: linear-gradient(220deg, #000000, #000000);font-size: 0.9rem; margin-top: 30px;">&copy; <script type="text/javascript">document.write(new Date().getFullYear())</script> - MetrixMedia</h1>
+    </div>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide swiper-slide--one" style="height: 725px;">
+          <div>
+          </div>
         </div>
-        <h1 class="d-flex justify-content-center mb-1" style="color: rgb(255,255,255);font-size: 36px;text-align: center;margin-top: 15px;">&copy; <script type="text/javascript">document.write(new Date().getFullYear())</script> - MetrixMedia</h1>
-    </header>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+        <div class="swiper-slide swiper-slide--two" style="height: 725px;">
+          <div>
+          </div>
+        </div>
+        <div class="swiper-slide swiper-slide--three" style="height: 725px;">
+          <div>
+          </div>
+        </div>
+        <div class="swiper-slide swiper-slide--four" style="height: 725px;">
+          <div>
+          </div>
+        </div>
+        <div class="swiper-slide swiper-slide--five" style="height: 725px;">
+          <div>
+          </div>
+        </div>
+        <div class="swiper-slide swiper-slide--six" style="height: 725px;">
+            <div>
+            </div>
+        </div>   
+      </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+<script src="assets/index/index.js"></script>
 
 </html>
