@@ -2,7 +2,7 @@
 
 **POLITIQUE DE CONFIDENTIALITÉ**
 
-**Dernière mise à jour 20 janvier 2024**
+**Dernière mise à jour 26 Juillet 2024**
 
 Cette politique de confidentialité pour MetrixMedia ("**nous**" ou "**notre**") décrit comment et pourquoi nous collectons, stockons, utilisons et/ou partageons ("**traiter**") vos informations lorsque vous utilisez nos services ("**services**""), par exemple lorsque vous :
 
@@ -186,7 +186,7 @@ En fonction des lois applicables dans votre pays, vous pouvez avoir le droit de 
 
 **PRIVACY POLICY**
 
-**Last updated January 20, 2024**  
+**Last updated July 26, 2024**  
 
 This privacy notice for MetrixMedia ("**we**," "**us**," or "**our**"), describes how and why we might collect, store, use, and/or share ("**process**") your information when you use our services ("**Services**"), such as when you:
 
@@ -214,7 +214,7 @@ This privacy notice for MetrixMedia ("**we**," "**us**," or "**our**"), describe
 
 **What are your rights?** Depending on where you are located geographically, the applicable privacy law may mean you have certain rights regarding your personal information. Learn more about [your privacy rights](#privacyrights).
 
-**How do you exercise your rights?** The easiest way to exercise your rights is by visiting [https://notes.metrixmedia.fr/bug](https://notes.metrixmedia.fr/bug), or by contacting us. We will consider and act upon any request in accordance with applicable data protection laws.
+**How do you exercise your rights?** The easiest way to exercise your rights is by visiting [https://notes.metrixmedia.fr/support](https://notes.metrixmedia.fr/support), or by contacting us. We will consider and act upon any request in accordance with applicable data protection laws.
 
 Want to learn more about what we do with any information we collect? [Review the privacy notice in full](#toc).
 
