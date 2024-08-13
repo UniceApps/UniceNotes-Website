@@ -1,6 +1,6 @@
-# FRANÇAIS
+# Politique de confidentialité - UniceNotes <img style="border-radius: 15%; align-items: center;" height="28" src="https://notes.metrixmedia.fr/favicon.png">
 
-**POLITIQUE DE CONFIDENTIALITÉ**
+## FRANÇAIS
 
 **Dernière mise à jour 26 Juillet 2024**
 
@@ -173,16 +173,13 @@ Nous pouvons mettre à jour cette politique de confidentialité de temps à autr
 
 **11\. COMMENT POUVEZ-VOUS NOUS CONTACTER AU SUJET DE CETTE POLITIQUE ?**
 
-Si vous avez des questions ou des commentaires concernant cette politique, vous pouvez nous envoyer un e-mail à [privacy@metrixmedia.fr](mailto:privacy@metrixmedia.fr) ou nous contacter par courrier à :
-
-MetrixMedia\
-France
+Si vous avez des questions ou des commentaires concernant cette politique, vous pouvez nous envoyer un e-mail à [privacy@metrixmedia.fr](mailto:privacy@metrixmedia.fr).
 
 **12\. COMMENT POUVEZ-VOUS CONSULTER, METTRE À JOUR OU SUPPRIMER LES DONNÉES QUE NOUS COLLECTONS CHEZ VOUS ?**
 
 En fonction des lois applicables dans votre pays, vous pouvez avoir le droit de demander l'accès aux informations personnelles que nous collectons auprès de vous, de modifier ces informations ou de les supprimer. Pour demander la révision, la mise à jour ou la suppression de vos informations personnelles, veuillez visiter : [https://notes.metrixmedia.fr/support](https://notes.metrixmedia.fr/support).
 
-# ANGLAIS
+## ENGLISH
 
 **PRIVACY POLICY**
 

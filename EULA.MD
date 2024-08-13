@@ -1,6 +1,6 @@
-# FRANÇAIS
+# Conditions d'utilisation - UniceNotes <img style="border-radius: 15%; align-items: center;" height="28" src="https://notes.metrixmedia.fr/favicon.png">
 
-**Conditions générales d'utilisation**
+## FRANÇAIS
 
 **Dernière mise à jour 17 Juillet 2024**
 
