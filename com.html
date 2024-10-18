@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Communiqués - UniceNotes</title>
+    <meta name="description" content="Votre ENT. Dans votre poche.">
+    <meta name="author" content="hugofnm">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/credits.css">
+    <link href="favicon.png" rel="icon" type="image/png">
+    <link href="https://fonts.cdnfonts.com/css/bahnschrift" rel="stylesheet">
+    <style>
+        code {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 5px;
+            display: block;
+            margin: 10px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="text-align: left; margin-left: 20%; margin-right: 20%;">
+        <h1>Communiqué - UniceNotes <img style="border-radius: 15%; align-items: center;" height="28" src="https://notes.metrixmedia.fr/favicon.png"></h1>
+        
+        <h2> 18/10/2024 à Nice - Clarification concernant UniceNotes </h2>
+
+        <h3>Suite au récent courriel envoyé aux listes de l'I.U.T. de Nice Côte d'Azur, section Cannes, 
+            il semble important de clarifier la situation concernant UniceNotes.
+
+            <br><br>
+
+            Tout d'abord, AUCUNE demande officielle, que ce soit par écrit ou par oral n'a été formulée à MetrixMedia 
+            (l'entité représentant le développeur) ou même au développeur lui-même (hugo.meleiro at etu.univ-cotedazur.fr)
+            depuis le début de l'année universitaire (01/09/2024).
+
+            <br><br>
+
+            Ensuite, l'expéditeur du courriel mentionne que UniceNotes aurait été mis à jour pour 
+            "s'interconnecter illégalement à ADE".
+            Cependant, cette affirmation est incorrecte. 
+
+            <br>
+
+            Toute personne disposant d'un smartphone, d'une tablette ou d'un ordinateur peut facilement exporter 
+            son emploi du temps grâce aux outils OFFICIELS fournis par ADEWeb, au format <em>.ical</em>.
+            
+            <br>
+
+            Et c'est grâce à cet outil public que UniceNotes peut récupérer votre emploi du temps*.
+
+            <br><br>
+
+            L'adresse de l'outil : <em>https://edtweb.univ-cotedazur.fr/jsp/custom/modules/plannings/
+                anonymous_cal.jsp?code={adeid}&projectId={ADE_PROJECT}&calType=ical{ADE_DATE}</em>
+            
+            <br><br>
+
+            Avec les variables :
+
+            <ul>
+                <li><em>adeid</em> qui correspond à votre cursus ou votre numéro étudiant (par exemple le mien : TBIAS3-230-VET).</li>
+                <li><em>ADE_PROJECT</em> qui est un identifiant de projet (par exemple 4 pour l'année universitaire 2024-2025).</li>
+                <li><em>Et ADE_DATE</em> qui est la plage de dates à récupérer.</li>
+            </ul>
+
+            Nous vous rappelons que UniceNotes ne stocke AUCUN MOT DE PASSE sur son serveur et TOUTES les mesures liés à la sécurité de vos données 
+            sont appliquées <a href="https://github.com/UniceApps/UniceAPIDocumentation">(HTTPS, HSTS, chiffrement niveau NSA en SHA256, ...).</a>
+
+            <br><br>
+
+            Votre mot de passe est utilisé UNIQUEMENT pour récupérer des données nécessaires à la bonne exécution de l'application
+            sur l'intranet de l'Université (login.univ-cotedazur.fr et intracursus.unice.fr pour l'IUT). 
+            Ces informations ne quittent jamais votre téléphone.
+
+            <br><br>
+
+            UniceNotes se veut Open Source, pour les étudiants, par les étudiants.
+
+            <br>
+
+            Conformément à la licence MIT, vous pouvez demander autant de copies du code que vous voulez (soit sur <a href="https://github.com/UniceApps">GitHub</a>, soit à <a href="mailto://code@metrixmedia.fr">code@metrixmedia.fr</a>)
+            et même en faire ce que vous voulez (plus d'infos sur <a href="https://github.com/UniceApps/UniceNotes/blob/main/LICENSE">Licence</a>).
+
+            <br><br>
+
+            Je m'engage à couper le serveur intermédiaire d'UniceNotes d'ici décembre. 
+            Ce serveur n'est actuellement qu'une passerelle entre l'Intranet et votre téléphone. 
+            À partir de la version 3.0.0 (prévue pour décembre), 
+            cette fonctionnalité sera entièrement gérée directement sur votre appareil.
+
+            <br><br>
+
+            Ce projet est le fruit de plusieurs années de travail et de passion.
+            <br>
+            Je trouve dommage de ne pas encourager ce projet alors même que le slogan de l'Université est "Oser créer". 
+
+            <br><br>
+
+            Bref, merci d'utiliser UniceNotes, vous êtes plus de 2500 utilisateurs** à l'utiliser chaque semaine.
+
+            <br>
+            Merci de votre confiance. <3
+
+            <br><br>
+
+            Hugo.
+            
+            <br><br>
+            P.S. : <br>
+            mon mail : hugo.meleiro at etu.univ-cotedazur.fr <br>
+            si vous souhaitez qu'on en parle :)
+
+            <br><br>
+            P.P.S. : <br>
+            si vous n'avez toujours pas été convaincu, <br>
+            vous pouvez toujours renoncer aux CGU de l'application et supprimer
+            vos données dans (Paramètres > Mon Compte > Supprimer mes données).
+        </h3>
+
+        <h4>
+            * Le bout de code utilisé pour récupérer votre emploi du temps :
+
+            <code>
+                # iCal API -----------------------------------------------------------------------
+                @app.route("/edt/<adeid>", methods=["POST"])
+                @limiter.limit("10 per minute")
+                def edt(adeid):
+                    if not adeid:
+                        abort(400)
+
+                    try:
+                        response = requests.get(f"https://edtweb.univ-cotedazur.fr/jsp/custom/modules/plannings/
+                        anonymous_cal.jsp?code={adeid}&projectId={ADE_PROJECT}&calType=ical{ADE_DATE}", timeout = 3)
+                    except Exception as e:
+                        return [{
+                            "id": 0,
+                            "summary": "ADE Indisponible",
+                            "location": "Emplois du temps indisponibles.",
+                            "description": "",
+                            "start_time": datetime.now().isoformat(),
+                            "end_time": (datetime.now() + timedelta(hours=1)).isoformat()
+                        }]
+                    
+                    if response.status_code != 200:
+                        abort(500)  # internal server error
+
+                    ical_string = response.content
+
+                    # parse icalendar string
+                    calendar = icalendar.Calendar.from_ical(ical_string)
+                    
+                    # convert calendar to JSON
+                    id = 0
+                    events = []
+                    for component in calendar.walk():
+                        if component.name == "VEVENT":
+
+                            # Clean some ADE shit
+                            desc = component.get("description").to_ical().decode()
+                            desc = desc.replace("\\n", "\n")
+                            desc = desc.replace("\\,", ",")
+                            desc = re.sub(r"\(Exporté le:[^)]+\)", "", desc).strip()
+
+                            event = {
+                                "id": id, 
+                                "summary": component.get("summary").to_ical().decode(),
+                                "location": component.get("location").to_ical().decode(),
+                                "description": desc,
+                                "start_time": component.get("dtstart").dt.isoformat(),
+                                "end_time": component.get("dtend").dt.isoformat(),
+                            }
+                            events.append(event)
+                            id += 1
+                    
+                    events_json = json.dumps(events)
+                    
+                    # send response as ical
+                    return events_json
+            </code>
+
+            ** Statistiques de téléchargement fournis par l'Apple App Store et le Google Play Store.
+
+        </h4>
+</body>
+</html>
