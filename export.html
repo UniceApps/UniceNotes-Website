@@ -36,6 +36,12 @@
             icsButton.style.display = 'block';
             icsButton.style.margin = '10px 0';
 
+            const appleButton = document.createElement('a');
+            appleButton.href = `webcal://edtweb.univ-cotedazur.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?code=${userId}&projectId=4&calType=ical&firstDate=2024-09-01&lastDate=2025-08-31`;
+            appleButton.innerText = 'Ajouter à Apple Calendar';
+            appleButton.style.display = 'block';
+            appleButton.style.margin = '10px 0';
+
             const outlookButton = document.createElement('a');
             outlookButton.href = `https://outlook.live.com/owa?path=/calendar/action/compose&rru=addsubscription&url=${icalUrl}&name=I.U.T.`;
             outlookButton.innerText = 'Ajouter à Outlook Calendar';
@@ -122,14 +128,17 @@
             document.body.appendChild(hr1);
             document.body.appendChild(h3);
             document.body.appendChild(calendarInfo);
+
+            // Append buttons to body
+            document.body.appendChild(icsButton);
+            document.body.appendChild(appleButton);
+            document.body.appendChild(outlookButton);
+
             document.body.appendChild(urlContainer);
 
             // Display userId
             document.getElementById('userid').innerText = userId;
 
-            // Append buttons to body
-            document.body.appendChild(icsButton);
-            document.body.appendChild(outlookButton);
         } else {
             const inputContainer = document.createElement('div');
             inputContainer.style.display = 'flex';
