@@ -183,8 +183,9 @@
             input2.style.borderRadius = '5px';
             input2.addEventListener('input', function () {
                 if (input2.value.length > 2) {
-                    fetch(`https://ade-consult.univ-cotedazur.fr/?action=search-vet&term=${input2.value}`)
-                        .then(async response => {
+                    fetch(`https://toolbox.hugofnm.workers.dev/cors?url=https://ade-consult.univ-cotedazur.fr/?action=search-vet&term=${input2.value}`, {
+                        mode:  'cors'
+                    }).then(async response => {
                             let data =  await response.json();
                             console.log(data);
                             const resultsContainer = document.createElement('div');
