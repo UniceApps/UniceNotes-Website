@@ -29,30 +29,15 @@
         if (userId) {
             const icalUrl = `https://edtweb.univ-cotedazur.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?code=${userId}&projectId=4&calType=ical&firstDate=2024-09-01&lastDate=2025-08-31`;
 
-            // Create buttons
-            const icsButton = document.createElement('a');
-            icsButton.href = icalUrl;
-            icsButton.innerText = 'Télecharger le fichier .ics';
-            icsButton.style.display = 'block';
-            icsButton.style.margin = '10px 0';
-
-            const appleButton = document.createElement('a');
-            appleButton.href = `webcal://edtweb.univ-cotedazur.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?code=${userId}&projectId=4&calType=ical&firstDate=2024-09-01&lastDate=2025-08-31`;
-            appleButton.innerText = 'Ajouter à Apple Calendar';
-            appleButton.style.display = 'block';
-            appleButton.style.margin = '10px 0';
-
-            const googleButton = document.createElement('a');
-            googleButton.href = `intent://calendar.google.com/calendar?cid=https://edtweb.univ-cotedazur.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?code=${userId}%26projectId=4%26calType=ical%26firstDate=2024-09-01%26lastDate=2025-08-31#Intent;scheme=https;package=com.google.android.calendar;end`;
-            googleButton.innerText = 'Ajouter à Google Calendar';
-            googleButton.style.display = 'block';
-            googleButton.style.margin = '10px 0';
-
-            const outlookButton = document.createElement('a');
-            outlookButton.href = `https://outlook.live.com/owa?path=/calendar/action/compose&rru=addsubscription&url=${icalUrl}&name=I.U.T.`;
-            outlookButton.innerText = 'Ajouter à Outlook Calendar';
-            outlookButton.style.display = 'block';
-            outlookButton.style.margin = '10px 0';
+            // Create button
+            const icalButton = document.createElement('add-to-calendar-button');
+            icalButton.setAttribute('name', 'I.U.T.');
+            icalButton.setAttribute('timeZone', 'Europe/Paris');    
+            icalButton.setAttribute('icsFile', icalUrl);
+            icalButton.setAttribute('subscribe', true);
+            icalButton.setAttribute('options', "'Apple','Google','iCal','Outlook.com','Yahoo','Microsoft365'");
+            icalButton.setAttribute('buttonStyle', 'text');
+            icalButton.setAttribute('language', 'fr');
 
             document.addEventListener('DOMContentLoaded', function () {
                 const userId = getParameterByName('userId');
@@ -136,10 +121,8 @@
             document.body.appendChild(calendarInfo);
 
             // Append buttons to body
-            document.body.appendChild(icsButton);
-            document.body.appendChild(appleButton);
-            document.body.appendChild(googleButton);
-            document.body.appendChild(outlookButton);
+            document.body.appendChild(icalButton);
+             
 
             document.body.appendChild(urlContainer);
 
@@ -247,6 +230,8 @@
     <footer>
         <p>&copy; <script>document.write(new Date().getFullYear())</script> - MetrixMedia. F*ck ADE. Longue Vie à UniceNotes.</p>
     </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/add-to-calendar-button@2" async defer></script>
 </body>
 
 </html>
