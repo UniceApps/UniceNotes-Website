@@ -42,6 +42,12 @@
             appleButton.style.display = 'block';
             appleButton.style.margin = '10px 0';
 
+            const googleButton = document.createElement('a');
+            googleButton.href = `intent://calendar.google.com/calendar?cid=https://edtweb.univ-cotedazur.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?code=${userId}%26projectId=4%26calType=ical%26firstDate=2024-09-01%26lastDate=2025-08-31#Intent;scheme=https;package=com.google.android.calendar;end`;
+            googleButton.innerText = 'Ajouter à Google Calendar';
+            googleButton.style.display = 'block';
+            googleButton.style.margin = '10px 0';
+
             const outlookButton = document.createElement('a');
             outlookButton.href = `https://outlook.live.com/owa?path=/calendar/action/compose&rru=addsubscription&url=${icalUrl}&name=I.U.T.`;
             outlookButton.innerText = 'Ajouter à Outlook Calendar';
@@ -132,6 +138,7 @@
             // Append buttons to body
             document.body.appendChild(icsButton);
             document.body.appendChild(appleButton);
+            document.body.appendChild(googleButton);
             document.body.appendChild(outlookButton);
 
             document.body.appendChild(urlContainer);
@@ -182,7 +189,7 @@
             input2.style.border = '1px solid #ccc';
             input2.style.borderRadius = '5px';
             input2.addEventListener('input', function () {
-                if (input2.value.length > 2) {
+                if (input2.value.length >= 2) {
                     fetch(`https://toolbox.hugofnm.workers.dev/cors?url=https://ade-consult.univ-cotedazur.fr/?action=search-vet&term=${input2.value}`, {
                         mode:  'cors'
                     }).then(async response => {
@@ -236,6 +243,10 @@
             document.body.appendChild(inputContainer);
         }
     </script>
+
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> - MetrixMedia. F*ck ADE. Longue Vie à UniceNotes.</p>
+    </footer>
 </body>
 
 </html>
