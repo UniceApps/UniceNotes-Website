@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Export - UniceNotes</title>
+    <meta name="description" content="Votre ENT. Dans votre poche.">
+    <meta name="author" content="hugofnm">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/credits.css">
+    <link href="favicon.png" rel="icon" type="image/png">
+    <link href="https://fonts.cdnfonts.com/css/bahnschrift" rel="stylesheet">
+</head>
+
+<body>
+    <h1>UniceNotes</h1>
+    <h2> Exportation - Emploi du temps</h2>
+
+    <script>
+        // Function to get URL parameter
+        function getParameterByName(name) {
+            const url = new URL(window.location.href);
+            return url.searchParams.get(name);
+        }
+
+        // Get userId from URL
+        const userId = getParameterByName('userId');
+        if (userId) {
+            const icalUrl = `https://edtweb.univ-cotedazur.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?code=${userId}&projectId=4&calType=ical&firstDate=2024-09-01&lastDate=2025-08-31`;
+
+            // Create button
+            const icalButton = document.createElement('add-to-calendar-button');
+            icalButton.setAttribute('name', 'I.U.T.');
+            icalButton.setAttribute('timeZone', 'Europe/Paris');    
+            icalButton.setAttribute('icsFile', icalUrl);
+            icalButton.setAttribute('subscribe', true);
+            icalButton.setAttribute('options', "'Apple','Google','iCal','Outlook.com','Yahoo','Microsoft365'");
+            icalButton.setAttribute('buttonStyle', 'text');
+            icalButton.setAttribute('language', 'fr');
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const userId = getParameterByName('userId');
+                if (userId) {
+                    const icalUrl = `https://edtweb.univ-cotedazur.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?code=${userId}&projectId=4&calType=ical&firstDate=2024-09-01&lastDate=2025-08-31`;
+                    document.getElementById('ical-url').innerText = icalUrl;
+
+                    document.getElementById('copy-button').addEventListener('click', function () {
+                        navigator.clipboard.writeText(icalUrl).then(() => {
+                            document.getElementById('copy-button').innerText = 'Copié !';
+                            document.getElementById('copy-button').style.backgroundColor = '#28a745';
+                        });
+                    });
+                }
+            });
+
+            const userIdContainer = document.createElement('p');
+            userIdContainer.id = 'userid-container';
+            userIdContainer.innerHTML = 'Votre identifiant utilisateur est : <span id="userid"></span>';
+
+            const editButtonContainer = document.createElement('div');
+            editButtonContainer.style.display = 'flex';
+            editButtonContainer.style.gap = '10px';
+
+            const editButton = document.createElement('button');
+            editButton.id = 'edit-button';
+            editButton.style.padding = '5px 10px';
+            editButton.style.backgroundColor = '#007bff';
+            editButton.style.color = 'white';
+            editButton.style.border = 'none';
+            editButton.style.borderRadius = '5px';
+            editButton.style.cursor = 'pointer';
+            editButton.innerText = 'Éditer';
+            editButton.addEventListener('click', function () {
+                window.location.href = `export`;
+            });
+
+            editButtonContainer.appendChild(editButton);
+
+            const hr1 = document.createElement('hr');
+            hr1.style.border = '1px solid #ccc';
+            hr1.style.margin = '20px 0';
+
+            const h3 = document.createElement('h3');
+            h3.innerText = 'Calendriers';
+
+            const calendarInfo = document.createElement('p');
+            calendarInfo.innerText = 'Vous pouvez ajouter votre emploi du temps à votre calendrier en utilisant les liens suivants :';
+
+            const urlContainer = document.createElement('div');
+            urlContainer.id = 'url-container';
+            urlContainer.style.border = '1px solid #ccc';
+            urlContainer.style.padding = '10px';
+            urlContainer.style.margin = '10px 0';
+            urlContainer.style.display = 'flex';
+            urlContainer.style.justifyContent = 'space-between';
+            urlContainer.style.alignItems = 'center';
+
+            const icalUrlParagraph = document.createElement('p');
+            icalUrlParagraph.id = 'ical-url';
+            icalUrlParagraph.style.margin = '0';
+            icalUrlParagraph.style.wordBreak = 'break-all';
+
+            const copyButton = document.createElement('button');
+            copyButton.id = 'copy-button';
+            copyButton.style.padding = '5px 10px';
+            copyButton.style.backgroundColor = '#007bff';
+            copyButton.style.color = 'white';
+            copyButton.style.border = 'none';
+            copyButton.style.borderRadius = '5px';
+            copyButton.style.cursor = 'pointer';
+            copyButton.innerText = 'Copier l\'URL';
+
+            urlContainer.appendChild(icalUrlParagraph);
+            urlContainer.appendChild(copyButton);
+
+            document.body.appendChild(userIdContainer);
+            document.body.appendChild(editButtonContainer);
+            document.body.appendChild(hr1);
+            document.body.appendChild(h3);
+            document.body.appendChild(calendarInfo);
+
+            // Append buttons to body
+            document.body.appendChild(icalButton);
+            document.body.appendChild(urlContainer);
+
+            // Display userId
+            document.getElementById('userid').innerText = userId;
+
+        } else {
+            const inputContainer = document.createElement('div');
+            inputContainer.style.display = 'flex';
+            inputContainer.style.flexDirection = 'column';
+            inputContainer.style.gap = '10px';
+
+            const etuInfo = document.createElement('p');
+            etuInfo.innerText = 'Tapez votre numéro étudiant pour exporter votre emploi du temps.';
+
+            const input1 = document.createElement('input');
+            input1.type = 'text';
+            input1.placeholder = 'Numéro étudiant';
+            input1.pattern = '\\d{8}';
+            input1.title = 'Veuillez entrer exactement 8 chiffres';
+            input1.style.padding = '10px';
+            input1.style.border = '1px solid #ccc';
+            input1.style.borderRadius = '5px';
+
+            const validateData1 = document.createElement('button');
+            validateData1.style.padding = '5px 10px';
+            validateData1.style.backgroundColor = '#007bff';
+            validateData1.style.color = 'white';
+            validateData1.style.border = 'none';
+            validateData1.style.borderRadius = '5px';
+            validateData1.style.cursor = 'pointer';
+            validateData1.innerText = 'Exporter';
+            validateData1.addEventListener('click', function () {
+                const userId = input1.value;
+                if (userId) {
+                    window.location.href = `export?userId=${userId}`;
+                }
+            });
+
+            const cursusInfo = document.createElement('p');
+            cursusInfo.innerText = 'Ou bien cherchez votre emploi du temps par cursus.';
+
+            const input2 = document.createElement('input');
+            input2.type = 'text';
+            input2.placeholder = 'Recherche';
+            input2.style.padding = '10px';
+            input2.style.border = '1px solid #ccc';
+            input2.style.borderRadius = '5px';
+            input2.addEventListener('input', function () {
+                if (input2.value.length >= 2) {
+                    fetch(`https://toolbox.hugofnm.workers.dev/cors?url=https://ade-consult.univ-cotedazur.fr/?action=search-vet&term=${input2.value}`, {
+                        mode:  'cors'
+                    }).then(async response => {
+                            let data =  await response.json();
+                            console.log(data);
+                            const resultsContainer = document.createElement('div');
+                            resultsContainer.id = 'results-container';
+                            resultsContainer.style.display = 'flex';
+                            resultsContainer.style.flexDirection = 'column';
+                            resultsContainer.style.gap = '10px';
+                            resultsContainer.style.marginTop = '10px';
+
+                            data.results.forEach(cursus => {
+                                console.log(cursus);
+                                const cursusButton = document.createElement('button');
+                                cursusButton.style.padding = '5px 10px';
+                                cursusButton.style.backgroundColor = '#007bff';
+                                cursusButton.style.color = 'white';
+                                cursusButton.style.border = 'none';
+                                cursusButton.style.borderRadius = '5px';
+                                cursusButton.style.cursor = 'pointer';
+                                cursusButton.innerText = cursus.text;
+                                cursusButton.addEventListener('click', function () {
+                                    window.location.href = `export?userId=${cursus.id + "-VET"}`;
+                                });
+
+                                resultsContainer.appendChild(cursusButton);
+                            });
+
+                            const existingResultsContainer = document.getElementById('results-container');
+                            if (existingResultsContainer) {
+                                existingResultsContainer.replaceWith(resultsContainer);
+                            } else {
+                                inputContainer.appendChild(resultsContainer);
+                            }
+                        });
+                }
+            });
+
+            const hr = document.createElement('hr');
+            hr.style.border = '1px solid #ccc';
+            hr.style.margin = '20px 0';
+
+            inputContainer.appendChild(etuInfo);
+            inputContainer.appendChild(input1);
+            inputContainer.appendChild(validateData1);
+            inputContainer.appendChild(hr);
+            inputContainer.appendChild(cursusInfo);
+            inputContainer.appendChild(input2);
+
+            document.body.appendChild(inputContainer);
+        }
+    </script>
+
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> - MetrixMedia. F*ck ADE. Longue Vie à UniceNotes.</p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/add-to-calendar-button@2" async defer></script>
+</body>
+
+</html>
