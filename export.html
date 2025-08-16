@@ -27,7 +27,7 @@
         // Get userId from URL
         const userId = getParameterByName('userId');
         if (userId) {
-            const icalUrl = `https://edtweb.univ-cotedazur.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?code=${userId}&projectId=4&calType=ical&firstDate=2024-09-01&lastDate=2025-08-31`;
+            const icalUrl = `https://edtweb.univ-cotedazur.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?code=${userId}&projectId=5&calType=ical&firstDate=2025-09-01&lastDate=2026-08-31`;
 
             // Create button
             const icalButton = document.createElement('add-to-calendar-button');
@@ -42,7 +42,7 @@
             document.addEventListener('DOMContentLoaded', function () {
                 const userId = getParameterByName('userId');
                 if (userId) {
-                    const icalUrl = `https://edtweb.univ-cotedazur.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?code=${userId}&projectId=4&calType=ical&firstDate=2024-09-01&lastDate=2025-08-31`;
+                    const icalUrl = `https://edtweb.univ-cotedazur.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?code=${userId}&projectId=5&calType=ical&firstDate=2025-09-01&lastDate=2026-08-31`;
                     document.getElementById('ical-url').innerText = icalUrl;
 
                     document.getElementById('copy-button').addEventListener('click', function () {
