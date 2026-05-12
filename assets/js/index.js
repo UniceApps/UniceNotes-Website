@@ -1,38 +1,20 @@
-var swiper = new Swiper(".swiper", {
-    effect: "coverflow",
-    grabCursor: true,
-    centeredSlides: true,
-    coverflowEffect: {
-      rotate: 0,
-      stretch: 0,
-      depth: 100,
-      modifier: 3,
-      slideShadows: true
-    },
-    keyboard: {
-      enabled: true
-    },
-    mousewheel: {
-      thresholdDelta: 70
-    },
-    loop: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true
-    },
-    breakpoints: {
-      640: {
-        slidesPerView: 2
-      },
-      768: {
-        slidesPerView: 1
-      },
-      1024: {
-        slidesPerView: 2
-      },
-      1560: {
-        slidesPerView: 3
-      }
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      // stagger siblings in the same grid
+      const siblings = e.target.parentElement.querySelectorAll('.reveal');
+      siblings.forEach((el, idx) => {
+        if (el === e.target) {
+          setTimeout(() => el.classList.add('visible'), i * 60);
+        }
+      });
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
     }
   });
-  
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
